@@ -87,7 +87,8 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          mvn -B clean test cobertura:cobertura --file ${{ github.workspace }}/pom.xml
+          mkdir ${{ github.workspace }}/__reports
+          mvn -B clean test cobertura:cobertura --file ${{ github.workspace }}/pom.xml -Dsonar.coverage.jacoco.xmlReportPaths=${{ github.workspace }}/__reports/jacoco.xml
           mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
 # - name: Install SonarCloud scanner
