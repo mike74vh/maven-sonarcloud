@@ -18,6 +18,7 @@
     <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
     <sonar.exclusions>**/*.xml, **/*.xsd</sonar.exclusions>
     <sonar.coverage.exclusions>**/*.xml, **/*.xsd</sonar.coverage.exclusions>
+    <sonar.coverage.jacoco.xmlReportPaths>__reports/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
   </properties>
 
   <dependencies>
