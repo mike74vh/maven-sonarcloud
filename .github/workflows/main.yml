@@ -1,0 +1,30 @@
+name: main
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+  checks: write
+
+concurrency: action
+
+defaults:
+  run:
+    shell: pwsh
+
+jobs:
+  test-code:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Make CI operations
+        uses: ./
+        with:
+          node-version: ${{ vars.NODE_VERSION }}
