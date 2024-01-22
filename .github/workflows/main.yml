@@ -87,7 +87,8 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          mvn verify sonar:sonar -Dcoverage
+          mvn clean verify
+          mvn sonar:sonar
 
 # - name: Install SonarCloud scanner
 #   run: dotnet tool install --global dotnet-sonarscanner --version 6.0.0
