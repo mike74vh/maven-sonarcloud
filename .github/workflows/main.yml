@@ -87,8 +87,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          mkdir ${{ github.workspace }}/__reports
-          mvn sonar:sonar
+          mvn sonar:sonar -Pcoverage
 
 # - name: Install SonarCloud scanner
 #   run: dotnet tool install --global dotnet-sonarscanner --version 6.0.0
